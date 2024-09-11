@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #000;
+}
+
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  animation: vanish 1s forwards, rotateDot 1s forwards, colorShift 1s forwards;
+}
+
+@keyframes vanish {
+  to {
+    opacity: 0;
+    transform: scale(2);
+    box-shadow: 0 0 0px #00ff00;
+  }
+}
+
+@keyframes rotateDot {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg); /* Full rotation */
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    background-color: #00ff00; /* Start with neon green */
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+  50% {
+    background-color: #00f0ff; /* Transition to neon blue */
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+  }
+  100% {
+    background-color: #ff00ff; /* End with neon pink */
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+  }
+}
+.blast {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  animation: fadeBlast 1s forwards;
+}
+
+/* Small blast for single click */
+.small-blast {
+  width: 50px;
+  height: 50px;
+  background-color: #ff00ff; /* Neon pink */
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Big blast for double click */
+.big-blast {
+  width: 100px;
+  height: 100px;
+  background-color: #00ff00; /* Neon green */
+  box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+}
+
+/* Much big blast for triple click */
+.much-big-blast {
+  width: 200px;
+  height: 200px;
+  background-color: #00f0ff; /* Neon blue */
+  box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff;
+}
+
+/* Fade and expand the blast */
+@keyframes fadeBlast {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
